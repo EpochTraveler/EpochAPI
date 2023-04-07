@@ -36,6 +36,7 @@ public interface Config {
             if(getConfiguration().get(pairValue.path()) != null)
                 return;
             getConfiguration().set(pairValue.path(), pairValue.object());
+            save();
         });
     }
 
