@@ -42,4 +42,11 @@ public @interface ModuleDescription {
      * @return Module prefix
      */
      String prefix() default Core.CORE_PREFIX;
+
+    /**
+     * Optional
+     * Should the module be enabled on server startup
+     * @return Module autostart boolean
+     */
+     boolean enableAutomatically() default true;
 }

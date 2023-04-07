@@ -11,7 +11,7 @@ public abstract class Module {
 
     /**
      * Creates a new Module instance
-     * @param server
+     * @param server CoreServer instance
      */
     public Module(CoreServer server)
     {
@@ -29,4 +29,12 @@ public abstract class Module {
      * This method is getting called, when the Module gets disabled when reloading or closing the server.
      */
     public abstract void disable();
+
+    /**
+     * Get the module description class ${{@link ModuleDescription}}
+     * @return ModuleDescription object
+     */
+    public ModuleDescription getModuleDescription() {
+        return moduleDescription;
+    }
 }
