@@ -1,6 +1,7 @@
 package de.epochtraveler.epochapi.epoch;
 
-public interface IEpoch {
+public interface Epoch
+{
 
     String getEpochName();
 

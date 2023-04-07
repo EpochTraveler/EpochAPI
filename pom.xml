@@ -5,9 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.epochtraveler</groupId>
-    <artifactId>EpochAPI</artifactId>
-    <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <artifactId>epoch-api</artifactId>
+    <version>1.1.0</version>
 
     <name>EpochAPI</name>
 
@@ -44,14 +43,6 @@
         </resources>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>xxx</id>
-            <name>xxx</name>
-            <url>https://xxx.com</url>
-        </repository>
-    </distributionManagement>
-
     <repositories>
         <repository>
             <id>papermc-repo</id>
@@ -67,4 +58,13 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>EpochTravelers</id>
+            <name>GitHub EpochTraveler Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/EpochTraveler/EpochAPI</url>
+        </repository>
+    </distributionManagement>
+
 </project>
