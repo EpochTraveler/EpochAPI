@@ -1,11 +1,16 @@
 package de.epochtraveler.epochapi.user;
 
-import de.epochtraveler.epochapi.epoch.Epoch;
-
 public interface User
 {
-
+    /**
+     * Gets the player UniqueID (UUID)
+     * @return String
+     */
     String getUniqueId();
+
+    /**
+     * Gets the player name
+     * @return String
+     */
     String getUsername();
-    Epoch getUserEpoch();
 }
