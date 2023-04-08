@@ -21,7 +21,18 @@ public interface CoreServer
      */
     User getUser(String uuid);
 
+    /**
+     * Registers a listener
+     * @param clazz Event class
+     * @param listener EventListener class Object
+     */
     void registerListener(Class<? extends Event>  clazz, EventListener listener);
+
+    /**
+     * Unregister a listener
+     * @param clazz Event class
+     * @param listener EventListener class Object
+     */
     void unregisterListener(Class<? extends Event>  clazz, EventListener listener);
 
 }

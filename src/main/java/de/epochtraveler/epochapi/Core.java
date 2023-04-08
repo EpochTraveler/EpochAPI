@@ -5,12 +5,15 @@ import de.epochtraveler.epochapi.user.User;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * Implementation of the {@link CoreServer} interface
+ */
 public final class Core {
 
     private static CoreServer coreServer;
 
     public static final String CORE_PREFIX = "§c§lAdministration §7| ";
-    public static final String CORE_VERSION = "1.4.0";
+    public static final String CORE_VERSION = "1.4.1";
 
     public Core(CoreServer pluginInstance)
     {
