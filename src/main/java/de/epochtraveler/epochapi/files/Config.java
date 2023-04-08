@@ -81,6 +81,10 @@ public interface Config {
      */
     Config getConfig();
 
+    /**
+     * Current logger instance
+     * @return Logger
+     */
     Logger getLogger();
 
 }
