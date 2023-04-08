@@ -8,6 +8,7 @@ public abstract class Module {
 
     private static CoreServer coreServer;
     private final ModuleDescription moduleDescription;
+    private final ModuleLogger moduleLogger;
 
     /**
      * Creates a new Module instance
@@ -18,6 +19,7 @@ public abstract class Module {
         coreServer = server;
         this.moduleDescription = Objects.requireNonNull(getClass().getAnnotation(ModuleDescription.class),
                 "ModuleDescription is missing!");
+        this.moduleLogger = new ModuleLogger(this);
     }
 
     /**
@@ -36,5 +38,13 @@ public abstract class Module {
      */
     public ModuleDescription getModuleDescription() {
         return moduleDescription;
+    }
+
+    /**
+     * Get the module logger of the current module
+     * @return ModuleLogger Instance
+     */
+    public ModuleLogger getModuleLogger() {
+        return moduleLogger;
     }
 }

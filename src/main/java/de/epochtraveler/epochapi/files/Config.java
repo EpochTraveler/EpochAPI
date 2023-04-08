@@ -40,6 +40,10 @@ public interface Config {
         });
     }
 
+    /**
+     * Save the current #getConfiguration() into the #getFile() File.
+     * @return boolean
+     */
     default boolean save()
     {
         try
