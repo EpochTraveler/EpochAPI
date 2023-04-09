@@ -13,4 +13,10 @@ public interface User
      * @return String
      */
     String getUsername();
+
+    void sendError();
+
+    void sendMessage(String message);
+    void sendMessage(String prefix, String message);
+
 }
