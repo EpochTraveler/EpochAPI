@@ -3,6 +3,7 @@ package de.epochtraveler.epochapi;
 import de.epochtraveler.epochapi.commands.PlayerCommand;
 import de.epochtraveler.epochapi.event.EventListener;
 import de.epochtraveler.epochapi.user.User;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,16 +15,16 @@ public final class Core {
     private static CoreServer coreServer;
 
     public static final String CORE_PREFIX = "§c§lAdministration §7| ";
-    public static final String CORE_VERSION = "1.5.2";
+    public static final String CORE_VERSION = "1.5.3";
 
     public Core(CoreServer pluginInstance)
     {
         coreServer = pluginInstance;
     }
 
-    public static User getUser(String uuid)
+    public static User getUser(Player player)
     {
-        return coreServer.getUser(uuid);
+        return coreServer.getUser(player);
     }
 
     public static JavaPlugin getPluginInstance()

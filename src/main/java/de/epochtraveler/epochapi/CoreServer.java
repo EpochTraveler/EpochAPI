@@ -3,6 +3,7 @@ package de.epochtraveler.epochapi;
 import de.epochtraveler.epochapi.commands.PlayerCommand;
 import de.epochtraveler.epochapi.event.EventListener;
 import de.epochtraveler.epochapi.user.User;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,7 +21,7 @@ public interface CoreServer
      * @return User object
      * TODO: Automatically returns an online or offline user.
      */
-    User getUser(String uuid);
+    User getUser(Player player);
 
     /**
      * Registers a listener
