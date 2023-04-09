@@ -1,5 +1,6 @@
 package de.epochtraveler.epochapi;
 
+import de.epochtraveler.epochapi.commands.PlayerCommand;
 import de.epochtraveler.epochapi.event.EventListener;
 import de.epochtraveler.epochapi.user.User;
 import org.bukkit.event.Event;
@@ -35,4 +36,9 @@ public interface CoreServer
      */
     void unregisterListener(Class<? extends Event>  clazz, EventListener listener);
 
+    /**
+     * Registers a command
+     * @param command PlayerCommand
+     */
+    void registerCommand(PlayerCommand command);
 }
