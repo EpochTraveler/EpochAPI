@@ -1,6 +1,7 @@
 package de.epochtraveler.epochapi;
 
 import de.epochtraveler.epochapi.commands.PlayerCommand;
+import de.epochtraveler.epochapi.database.Database;
 import de.epochtraveler.epochapi.event.EventListener;
 import de.epochtraveler.epochapi.user.User;
 import org.bukkit.entity.Player;
@@ -42,4 +43,10 @@ public interface CoreServer
      * @param command PlayerCommand
      */
     void registerCommand(PlayerCommand command);
+
+    /**
+     * Use the DatabaseService to access database implementations
+     * @return Database
+     */
+    Database createDatabaseService();
 }
