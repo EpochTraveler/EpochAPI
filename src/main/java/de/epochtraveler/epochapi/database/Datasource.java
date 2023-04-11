@@ -21,6 +21,6 @@ public record Datasource(
      */
     public String getConnectionString()
     {
-        return String.format("jdbc:mysql://%s:%x/%s", hostname, port, database);
+        return String.format("jdbc:mysql://%s:%d/%s", hostname, port, database);
     }
 }
