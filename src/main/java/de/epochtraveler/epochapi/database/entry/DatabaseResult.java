@@ -18,5 +18,5 @@ public interface DatabaseResult {
      * This can be used with lambda integrations
      * @return Optional<Void>
      */
-    Optional<Void> hasResult();
+    Optional<Boolean> hasResult();
 }
