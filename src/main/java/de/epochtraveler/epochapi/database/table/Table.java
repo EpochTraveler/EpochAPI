@@ -2,6 +2,7 @@ package de.epochtraveler.epochapi.database.table;
 
 import de.epochtraveler.epochapi.database.column.ColumnType;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface Table {
@@ -14,9 +15,9 @@ public interface Table {
 
     /**
      * Gets a list with the statements which are needed to create the table
-     * @return List<String>
+     * @return HashMap<Integer, String>
      */
-    List<String> getStatements();
+    HashMap<Integer, String> getStatements();
 
     /**
      * Creates a column with the max size for this type.
