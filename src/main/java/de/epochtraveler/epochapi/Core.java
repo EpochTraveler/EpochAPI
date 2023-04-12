@@ -1,6 +1,7 @@
 package de.epochtraveler.epochapi;
 
 import de.epochtraveler.epochapi.commands.PlayerCommand;
+import de.epochtraveler.epochapi.database.Database;
 import de.epochtraveler.epochapi.event.EventListener;
 import de.epochtraveler.epochapi.user.User;
 import org.bukkit.entity.Player;
@@ -15,7 +16,7 @@ public final class Core {
     private static CoreServer coreServer;
 
     public static final String CORE_PREFIX = "§c§lAdministration §7| ";
-    public static final String CORE_VERSION = "1.7.2";
+    public static final String CORE_VERSION = "1.7.3";
 
     public Core(CoreServer pluginInstance)
     {
@@ -45,6 +46,11 @@ public final class Core {
     public static void registerCommand(PlayerCommand playerCommand)
     {
         coreServer.registerCommand(playerCommand);
+    }
+
+    public static Database createDatabaseService()
+    {
+        return coreServer.createDatabaseService();
     }
 
 }
