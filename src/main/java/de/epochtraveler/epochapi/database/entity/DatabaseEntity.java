@@ -10,4 +10,9 @@ public interface DatabaseEntity  {
      */
     Table getTable();
 
+    /**
+     * This method gets invoked after the Table got created
+     */
+    void invoke();
+
 }
