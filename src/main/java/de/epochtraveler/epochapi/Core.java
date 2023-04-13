@@ -16,7 +16,7 @@ public final class Core {
     private static CoreServer coreServer;
 
     public static final String CORE_PREFIX = "§c§lAdministration §7| ";
-    public static final String CORE_VERSION = "1.7.5-1";
+    public static final String CORE_VERSION = "1.8.0";
 
     public Core(CoreServer pluginInstance)
     {

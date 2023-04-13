@@ -1,6 +1,10 @@
 package de.epochtraveler.epochapi.user;
 
+import de.epochtraveler.epochapi.permissions.Permission;
+import de.epochtraveler.epochapi.ranks.Group;
 import org.bukkit.entity.Player;
+
+import java.util.List;
 
 public interface User
 {
@@ -15,6 +19,18 @@ public interface User
      * @return String
      */
     String getUsername();
+
+    /**
+     * Get all groups which the user is in
+     * @return List<Group>
+     */
+    List<Group> getGroups();
+
+    /**
+     * Get all user assigned permissions
+     * @return List<Permission>
+     */
+    List<Permission> getPermissions();
 
     /**
      * Send a error message to the user
