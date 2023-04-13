@@ -33,6 +33,13 @@ public interface User
     List<Permission> getPermissions();
 
     /**
+     * Checks if the user has a certain permission
+     * @param permission String
+     * @return String
+     */
+    boolean hasPermission(String permission);
+
+    /**
      * Send a error message to the user
      */
     void sendError();
