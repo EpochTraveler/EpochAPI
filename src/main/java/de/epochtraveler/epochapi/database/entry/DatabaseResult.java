@@ -25,5 +25,5 @@ public interface DatabaseResult {
      * Gets all found entries for the query which are saved in a row
      * @return HashMap<Integer, DatabaseEntry>
      */
-    HashMap<Integer, DatabaseEntry> getRowResult();
+    HashMap<Integer, List<DatabaseEntry>> getRowResult();
 }
