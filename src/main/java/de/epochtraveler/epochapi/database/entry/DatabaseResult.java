@@ -1,5 +1,6 @@
 package de.epochtraveler.epochapi.database.entry;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -19,4 +20,10 @@ public interface DatabaseResult {
      * @return Optional<Void>
      */
     Optional<Boolean> hasResult();
+
+    /**
+     * Gets all found entries for the query which are saved in a row
+     * @return HashMap<Integer, DatabaseEntry>
+     */
+    HashMap<Integer, DatabaseEntry> getRowResult();
 }
