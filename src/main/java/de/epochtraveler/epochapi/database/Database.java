@@ -1,6 +1,6 @@
 package de.epochtraveler.epochapi.database;
 
-import de.epochtraveler.epochapi.database.entry.DatabaseResult;
+import de.epochtraveler.epochapi.database.result.DatabaseResult;
 
 public interface Database {
 
