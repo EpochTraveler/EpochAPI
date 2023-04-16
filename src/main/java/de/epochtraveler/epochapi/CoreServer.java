@@ -49,4 +49,12 @@ public interface CoreServer
      * @return Database
      */
     Database createDatabaseService();
+
+
+    /**
+     * Creates a new permission
+     * @param name String
+     * @return boolean
+     */
+    boolean createPermission(String name);
 }
