@@ -8,4 +8,11 @@ public interface Permission {
      */
     String getPermission();
 
+    /**
+     * Creates a new permission
+     * @param name String
+     * @return boolean
+     */
+    boolean createPermission(String name);
+
 }
