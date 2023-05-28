@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * Implementation of the {@link CoreServer} interface
  */
 @API(
-        version = "1.9.0",
+        version = "1.9.1",
         name = "Core-API"
 )
 public final class Core {
@@ -21,6 +21,7 @@ public final class Core {
     private static CoreServer coreServer;
 
     public static final String CORE_PREFIX = "§c§lAdministration §7| ";
+    public static final String CORE_VERSION = "1.9.1";
 
     public Core(CoreServer pluginInstance)
     {
