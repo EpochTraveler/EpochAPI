@@ -1,5 +1,6 @@
 package de.epochtraveler.epochapi;
 
+import de.epochtraveler.epochapi.api.API;
 import de.epochtraveler.epochapi.commands.PlayerCommand;
 import de.epochtraveler.epochapi.database.Database;
 import de.epochtraveler.epochapi.event.EventListener;
@@ -11,12 +12,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 /**
  * Implementation of the {@link CoreServer} interface
  */
+@API(
+        version = "1.9.0",
+        name = "Core-API"
+)
 public final class Core {
 
     private static CoreServer coreServer;
 
     public static final String CORE_PREFIX = "§c§lAdministration §7| ";
-    public static final String CORE_VERSION = "1.8.6";
 
     public Core(CoreServer pluginInstance)
     {
