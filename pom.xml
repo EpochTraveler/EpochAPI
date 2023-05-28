@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.epochtraveler</groupId>
-    <artifactId>EpochAPI</artifactId>
+    <artifactId>epoch-api</artifactId>
     <version>1.9.0</version>
 
     <name>EpochAPI</name>
