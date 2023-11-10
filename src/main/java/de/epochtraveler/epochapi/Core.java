@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * Implementation of the {@link CoreServer} interface
  */
 @API(
-        version = "1.9.1",
+        version = "1.10.0",
         name = "Core-API"
 )
 public final class Core {
@@ -62,4 +62,11 @@ public final class Core {
     {
         return coreServer.createPermission(permission);
     }
+
+    public static API getAPIAnnotation()
+    {
+        if(Core.class.getAnnotation(API.class) == null) return null;
+        return Core.class.getAnnotation(API.class);
+    }
+
 }
