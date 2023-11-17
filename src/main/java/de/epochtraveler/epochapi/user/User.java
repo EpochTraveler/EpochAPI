@@ -60,4 +60,9 @@ public interface User
      */
     Player getPlayer();
 
+    /**
+     * Checks if the user is online
+     * @return true if online, otherwise return false
+     */
+    boolean isUserOnline();
 }
