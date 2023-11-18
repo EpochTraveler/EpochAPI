@@ -36,4 +36,11 @@ public interface Table {
      */
     Table addColumn(String name, ColumnType type, int length);
 
+    /**
+     * Adds a Primarykey to the table if the column already added
+     * @param columnName name of the column where the pk should be added
+     * @return Table
+     */
+    Table addPrimaryKey(String columnName);
+
 }

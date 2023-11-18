@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * Implementation of the {@link CoreServer} interface
  */
 @API(
-        version = "1.10.0",
+        version = "1.11.0",
         name = "Core-API"
 )
 public final class Core {
