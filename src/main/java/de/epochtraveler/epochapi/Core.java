@@ -2,7 +2,6 @@ package de.epochtraveler.epochapi;
 
 import de.epochtraveler.epochapi.api.API;
 import de.epochtraveler.epochapi.commands.PlayerCommand;
-import de.epochtraveler.epochapi.database.Database;
 import de.epochtraveler.epochapi.event.EventListener;
 import de.epochtraveler.epochapi.user.User;
 import org.bukkit.entity.Player;
@@ -13,7 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * Implementation of the {@link CoreServer} interface
  */
 @API(
-        version = "1.11.0",
+        version = "1.11.1",
         name = "Core-API"
 )
 public final class Core {
@@ -50,11 +49,6 @@ public final class Core {
     public static void registerCommand(PlayerCommand playerCommand)
     {
         coreServer.registerCommand(playerCommand);
-    }
-
-    public static Database createDatabaseService()
-    {
-        return coreServer.createDatabaseService();
     }
 
     public static boolean createPermission(String permission)
