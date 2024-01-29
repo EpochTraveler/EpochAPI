@@ -1,65 +1,64 @@
 package de.epochtraveler.epochapi;
 
-import de.epochtraveler.epochapi.api.API;
-import de.epochtraveler.epochapi.commands.PlayerCommand;
+import de.epochtraveler.epochapi.api.LocalInterface;
+import de.epochtraveler.epochapi.commands.UserCommand;
 import de.epochtraveler.epochapi.event.EventListener;
 import de.epochtraveler.epochapi.user.User;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Optional;
 
 /**
  * Implementation of the {@link CoreServer} interface
  */
-@API(
-        version = "1.11.1",
+@LocalInterface(
+        version = "2.0.0",
         name = "Core-API"
 )
 public final class Core {
 
-    private static CoreServer coreServer;
+    private static CoreServer core;
 
-    public static final String CORE_PREFIX = "§c§lAdministration §7| ";
+    private static final String HEX_CODE = "#BB86FC";
+    public static final Component CORE_PREFIX_COMPONENT = Component.text("Core")
+            .color(TextColor.fromHexString(HEX_CODE))
+            .appendSpace()
+            .append(Component.text("|").color(NamedTextColor.GRAY))
+            .appendSpace();
 
-    public Core(CoreServer pluginInstance)
+    public Core(CoreServer provider)
     {
-        coreServer = pluginInstance;
-    }
-
-    public static User getUser(Player player)
-    {
-        return coreServer.getUser(player);
-    }
-
-    public static JavaPlugin getPluginInstance()
-    {
-        return coreServer.getPluginInstance();
+        core = provider;
     }
 
     public static void registerListener(Class<? extends Event> eventClass, EventListener listener)
     {
-        coreServer.registerListener(eventClass, listener);
+        core.registerListener(eventClass, listener);
     }
 
     public static void unregister(Class<? extends Event> eventClass, EventListener listener)
     {
-        coreServer.registerListener(eventClass, listener);
+        core.registerListener(eventClass, listener);
     }
 
-    public static void registerCommand(PlayerCommand playerCommand)
+    public static void registerCommand(UserCommand playerCommand)
     {
-        coreServer.registerCommand(playerCommand);
+        core.registerCommand(playerCommand);
     }
 
-    public static boolean createPermission(String permission)
+    public static Optional<User> fromPlayer(Player player)
     {
-        return coreServer.createPermission(permission);
+        return core.fromPlayer(player);
     }
 
-    public static API getAPIAnnotation()
+    public static LocalInterface localInterface()
     {
-        if(Core.class.getAnnotation(API.class) == null) return null;
-        return Core.class.getAnnotation(API.class);
+        if(Core.class.getAnnotation(LocalInterface.class) == null) return null;
+        return Core.class.getAnnotation(LocalInterface.class);
     }
 
 }

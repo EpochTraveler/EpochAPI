@@ -1,52 +1,44 @@
 package de.epochtraveler.epochapi;
 
-import de.epochtraveler.epochapi.commands.PlayerCommand;
+import de.epochtraveler.epochapi.commands.UserCommand;
 import de.epochtraveler.epochapi.event.EventListener;
 import de.epochtraveler.epochapi.user.User;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Optional;
 
 public interface CoreServer
 {
 
     /**
-     * Returns the JavaPluginInstance from the core plugin
-     * @return JavaPlugin
+     * Retrieves a user object associated with the given player.
+     *
+     * @param player The player object for which to retrieve the user.
+     * @return An Optional containing the user object if found, or an empty Optional if not found.
      */
-    JavaPlugin getPluginInstance();
+    Optional<User> fromPlayer(Player player);
 
     /**
-     * Gets a user object from the given uuid
-     * @return User object
-     * TODO: Automatically returns an online or offline user.
-     */
-    User getUser(Player player);
-
-    /**
-     * Registers a listener
-     * @param clazz Event class
-     * @param listener EventListener class Object
+     * Registers a listener for a specific event class.
+     *
+     * @param clazz The class object representing the type of event to listen for.
+     * @param listener The EventListener object to be registered.
      */
     void registerListener(Class<? extends Event>  clazz, EventListener listener);
 
     /**
-     * Unregister a listener
-     * @param clazz Event class
-     * @param listener EventListener class Object
+     * Unregisters a listener for a specific event class.
+     *
+     * @param clazz The class object representing the type of event the listener was registered for.
+     * @param listener The EventListener object to be unregistered.
      */
     void unregisterListener(Class<? extends Event>  clazz, EventListener listener);
 
     /**
-     * Registers a command
-     * @param command PlayerCommand
+     * Registers a command to be available for users.
+     *
+     * @param command The UserCommand object representing the command to be registered.
      */
-    void registerCommand(PlayerCommand command);
-
-    /**
-     * Creates a new permission
-     * @param name String
-     * @return boolean
-     */
-    boolean createPermission(String name);
+    void registerCommand(UserCommand command);
 }
