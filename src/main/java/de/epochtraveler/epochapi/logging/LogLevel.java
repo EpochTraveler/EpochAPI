@@ -1,17 +1,19 @@
 package de.epochtraveler.epochapi.logging;
 
-import org.bukkit.ChatColor;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextColor;
+
 public enum LogLevel {
 
-    INFO(ChatColor.GRAY),
-    WARN(ChatColor.YELLOW),
-    ERROR(ChatColor.RED),
-    TRACE(ChatColor.LIGHT_PURPLE),
-    DEBUG(ChatColor.BLUE);
+    INFO(NamedTextColor.GRAY),
+    WARN(NamedTextColor.YELLOW),
+    ERROR(NamedTextColor.RED),
+    TRACE(NamedTextColor.LIGHT_PURPLE),
+    DEBUG(NamedTextColor.BLUE);
 
-    private ChatColor color;
+    private TextColor color;
 
-    LogLevel(ChatColor color)
+    LogLevel(TextColor color)
     {
         this.color = color;
     }
@@ -20,7 +22,7 @@ public enum LogLevel {
      * Returns the current color of the log-level
      * @return ChatColor
      */
-    public ChatColor getColor() {
+    public TextColor getColor() {
         return color;
     }
 }
