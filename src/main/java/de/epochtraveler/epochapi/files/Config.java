@@ -8,32 +8,32 @@ import java.io.IOException;
 import java.util.Arrays;
 
 /**
- * This config class currently supports the following types:
- * - .yml
+ * An interface for managing configuration files.
  */
 public interface Config {
 
     /**
-     * File object of the current config file
+     * Gets the file object of the current config file.
+     *
      * @return Config file
      */
     File getConfigFile();
 
     /**
-     * YamlConfiguration object of the current config file
+     * Gets the YamlConfiguration object of the current config file.
+     *
      * @return Config file
      */
     YamlConfiguration getConfiguration();
 
     /**
-     * Add Default Pair<b>Values</b>(Path, Object) into the config file if they dont exists.
-     * @param values PairValues[]
+     * Adds default values to the config file if they don't exist.
+     *
+     * @param values PairValue objects representing path-value pairs
      */
-    default void addDefaults(PairValue<?>... values)
-    {
-        Arrays.stream(values).forEach(pairValue ->
-        {
-            if(getConfiguration().get(pairValue.path()) != null)
+    default void addDefaults(PairValue<?>... values) {
+        Arrays.stream(values).forEach(pairValue -> {
+            if (getConfiguration().get(pairValue.path()) != null)
                 return;
             getConfiguration().set(pairValue.path(), pairValue.object());
             save();
@@ -41,18 +41,15 @@ public interface Config {
     }
 
     /**
-     * Save the current #getConfiguration() into the #getFile() File.
-     * @return boolean
+     * Saves the current configuration into the file.
+     *
+     * @return True if the save operation was successful, false otherwise.
      */
-    default boolean save()
-    {
-        try
-        {
+    default boolean save() {
+        try {
             getConfiguration().save(getConfigFile());
             return true;
-        }
-        catch (IOException exception)
-        {
+        } catch (IOException exception) {
             getLogger().error("Unable to save file: " + getConfigFile().getName());
             getLogger().error(exception.getMessage());
             return false;
@@ -60,31 +57,34 @@ public interface Config {
     }
 
     /**
-     * Save an object(value) into the given path
-     * @param path string
-     * @param value object
+     * Sets an object value at the specified path.
+     *
+     * @param path  The path in the configuration
+     * @param value The value to set
      */
     void set(String path, Object value);
 
     /**
-     * Gets the object from the given path.
-     * If you need more getters for example #getString implement it into the implementation
-     * @param path String
-     * @return T
-     * @param <T> Object
+     * Retrieves an object from the given path.
+     * If you need more specific getters (e.g., getString), implement them in the implementation class.
+     *
+     * @param <T>  The type of the object to retrieve
+     * @param path The path in the configuration
+     * @return The retrieved object
      */
     <T> T get(String path);
 
     /**
-     * Current instance of the Object
+     * Gets the current instance of the Config object.
+     *
      * @return Config instance
      */
     Config getConfig();
 
     /**
-     * Current logger instance
-     * @return Logger
+     * Gets the logger instance associated with this Config.
+     *
+     * @return Logger instance
      */
     Logger getLogger();
-
 }
