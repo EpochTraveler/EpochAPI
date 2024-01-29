@@ -1,68 +1,44 @@
 package de.epochtraveler.epochapi.user;
 
-import de.epochtraveler.epochapi.permissions.Permission;
-import de.epochtraveler.epochapi.ranks.Group;
 import org.bukkit.entity.Player;
 
-import java.util.List;
+/**
+ * A representation of a user in the system.
+ */
+public interface User {
 
-public interface User
-{
     /**
-     * Gets the player UniqueID (UUID)
-     * @return String
+     * Returns the player's unique identifier (UUID).
+     *
+     * @return The player's unique identifier as a String.
      */
-    String getUniqueId();
+    String uniqueId();
 
     /**
-     * Gets the player name
-     * @return String
+     * Returns the player's username.
+     *
+     * @return The player's username as a String.
      */
-    String getUsername();
+    String username();
 
     /**
-     * Get all groups which the user is in
-     * @return List<Group>
-     */
-    List<Group> getGroups();
-
-    /**
-     * Get all user assigned permissions
-     * @return List<Permission>
-     */
-    List<Permission> getPermissions();
-
-    /**
-     * Checks if the user has a certain permission
-     * @param permission String
-     * @return String
-     */
-    boolean hasPermission(String permission);
-
-    /**
-     * Send a error message to the user
-     */
-    void sendError();
-
-    /**
-     * Send a message to the user
+     * Sends a message to the user.
+     *
+     * @param message The message to be sent to the user.
      */
     void sendMessage(String message);
 
     /**
-     * Send a message with a custom prefix to the user
+     * Gets the associated Bukkit Player instance, if available.
+     *
+     * @return The associated Bukkit Player instance, or null if not available.
      */
-    void sendMessage(String prefix, String message);
+    Player bukkitPlayer();
 
     /**
-     * Gets the player object
-     * @return Player
+     * Checks if the user is currently online.
+     *
+     * @return True if the user is online, false otherwise.
      */
-    Player getPlayer();
-
-    /**
-     * Checks if the user is online
-     * @return true if online, otherwise return false
-     */
-    boolean isUserOnline();
+    boolean isOnline();
 }
