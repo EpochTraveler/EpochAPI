@@ -8,14 +8,14 @@ import java.util.Objects;
 /**
  * Implementation of the interface {@link Command}
  */
-public abstract class PlayerCommand implements Command {
+public abstract class UserCommand implements Command {
 
     private final CommandInfo commandInfo;
 
     /**
      * Creates a new PlayerCommand instance
      */
-    public PlayerCommand()
+    public UserCommand()
     {
         this.commandInfo = Objects.requireNonNull(getClass().getAnnotation(CommandInfo.class),
                 "CommandInfo Annotation is missing!");
