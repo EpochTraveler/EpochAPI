@@ -4,54 +4,58 @@ import de.epochtraveler.epochapi.user.User;
 
 import java.util.List;
 
-public interface Command
-{
+
+/**
+ * A functional interface representing a command to be executed.
+ */
+public interface Command {
 
     /**
-     * Command Executor
-     * @param user User Object
-     * @param args String[]
-     * @return CommandStatus
+     * Executes the command.
+     *
+     * @param user The user object executing the command.
+     * @param args The arguments provided with the command.
+     * @return The status of the command execution.
      */
     CommandStatus onCommand(User user, String args[]);
 
     /**
-     * The list which is used for tab completion
-     * @param user User Object
-     * @param args String[]
-     * @return List<String>
+     * Provides a list of suggestions for tab completion.
+     *
+     * @param user The user object executing the command.
+     * @param args The arguments provided with the command.
+     * @return A list of suggestions for tab completion.
      */
     List<String> onTabComplete(User user, String args[]);
 
     /**
-     * Contains the different Command Feedbacks when executing the command
+     * Enumerates the possible statuses of a command execution.
      */
-    enum CommandStatus
-    {
+    enum CommandStatus {
+
         /**
-         * Command is successful
+         * The command was executed successfully.
          */
         SUCCESS,
 
         /**
-         * Someone tried to execute a command
+         * The command execution was considered an abuse attempt.
          */
         ABUSE,
 
         /**
-         * Wrong command syntax
+         * The command syntax was incorrect.
          */
         WRONG_SYNTAX,
 
         /**
-         * No permission to execute that command
+         * The user does not have permission to execute the command.
          */
         NO_PERMISSION,
 
         /**
-         * No Response
+         * No specific feedback is provided for the command execution.
          */
-        NONE;
+        NONE
     }
-
 }
