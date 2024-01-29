@@ -1,50 +1,58 @@
 package de.epochtraveler.epochapi.modules;
 
 import de.epochtraveler.epochapi.CoreServer;
+import de.epochtraveler.epochapi.logging.Logger;
+import net.kyori.adventure.text.Component;
 
 import java.util.Objects;
 
-public abstract class Module {
+/**
+ * A base class for implementing modules in the server.
+ */
+public abstract class Module implements Logger {
 
     private static CoreServer coreServer;
-    private final ModuleDescription moduleDescription;
-    private final ModuleLogger moduleLogger;
+    private final ModuleInfo moduleInfo;
+    private final Logger logger;
 
     /**
-     * Creates a new Module instance
-     * @param server CoreServer instance
+     * Constructs a new Module instance.
+     *
+     * @param server The CoreServer instance.
+     * @throws NullPointerException if the ModuleInfo annotation is missing.
      */
     public Module(CoreServer server)
     {
         coreServer = server;
-        this.moduleDescription = Objects.requireNonNull(getClass().getAnnotation(ModuleDescription.class),
+        this.moduleInfo = Objects.requireNonNull(getClass().getAnnotation(ModuleInfo.class),
                 "ModuleDescription is missing!");
-        this.moduleLogger = new ModuleLogger(this);
+        this.logger = this;
     }
 
     /**
-     * This method is getting called, when the Module gets loaded on startup.
+     * This method is called when the module is being enabled during server startup.
      */
     public abstract void enable();
 
     /**
-     * This method is getting called, when the Module gets disabled when reloading or closing the server.
+     * This method is called when the module is being disabled during server reloading or shutdown.
      */
     public abstract void disable();
 
     /**
-     * Get the module description class ${{@link ModuleDescription}}
-     * @return ModuleDescription object
+     * Returns the prefix associated with this module for messages or commands.
+     *
+     * @return The prefix as a Component object.
      */
-    public ModuleDescription getModuleDescription() {
-        return moduleDescription;
-    }
+    public abstract Component prefix();
 
     /**
-     * Get the module logger of the current module
-     * @return ModuleLogger Instance
+     * Retrieves the module information associated with this module.
+     *
+     * @return The ModuleInfo object representing information about this module.
      */
-    public ModuleLogger getModuleLogger() {
-        return moduleLogger;
+    public ModuleInfo moduleInfo() {
+        return moduleInfo;
     }
+
 }
