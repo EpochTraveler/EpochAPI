@@ -1,5 +1,6 @@
 package de.epochtraveler.epochapi.user;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 
 /**
@@ -24,9 +25,9 @@ public interface User {
     /**
      * Sends a message to the user.
      *
-     * @param message The message to be sent to the user.
+     * @param component The message component sent to the user.
      */
-    void sendMessage(String message);
+    void sendMessage(Component  component);
 
     /**
      * Gets the associated Bukkit Player instance, if available.
