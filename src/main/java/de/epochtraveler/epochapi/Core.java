@@ -16,19 +16,12 @@ import java.util.Optional;
  * Implementation of the {@link CoreServer} interface
  */
 @LocalInterface(
-        version = "2.0.0",
+        version = "2.0.1",
         name = "Core-API"
 )
 public final class Core {
 
     private static CoreServer core;
-
-    private static final String HEX_CODE = "#BB86FC";
-    public static final Component CORE_PREFIX_COMPONENT = Component.text("Core")
-            .color(TextColor.fromHexString(HEX_CODE))
-            .appendSpace()
-            .append(Component.text("|").color(NamedTextColor.GRAY))
-            .appendSpace();
 
     public Core(CoreServer provider)
     {
