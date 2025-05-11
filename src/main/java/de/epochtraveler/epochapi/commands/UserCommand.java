@@ -1,6 +1,6 @@
 package de.epochtraveler.epochapi.commands;
 
-import de.epochtraveler.epochapi.user.User;
+import de.epochtraveler.epochapi.user.model.User;
 
 import java.util.List;
 import java.util.Objects;

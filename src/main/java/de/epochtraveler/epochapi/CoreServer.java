@@ -2,22 +2,11 @@ package de.epochtraveler.epochapi;
 
 import de.epochtraveler.epochapi.commands.UserCommand;
 import de.epochtraveler.epochapi.event.EventListener;
-import de.epochtraveler.epochapi.user.User;
-import org.bukkit.entity.Player;
+import de.epochtraveler.epochapi.user.service.UserService;
 import org.bukkit.event.Event;
-
-import java.util.Optional;
 
 public interface CoreServer
 {
-
-    /**
-     * Retrieves a user object associated with the given player.
-     *
-     * @param player The player object for which to retrieve the user.
-     * @return An Optional containing the user object if found, or an empty Optional if not found.
-     */
-    Optional<User> fromPlayer(Player player);
 
     /**
      * Registers a listener for a specific event class.
@@ -41,4 +30,15 @@ public interface CoreServer
      * @param command The UserCommand object representing the command to be registered.
      */
     void registerCommand(UserCommand command);
+
+    /**
+     * Returns the currently assigned {@link UserService} instance.
+     * <p>
+     * This service provides access to operations for retrieving and managing
+     * online and offline users.
+     *
+     * @return the current {@code UserService} instance
+     */
+    UserService userService();
+
 }
