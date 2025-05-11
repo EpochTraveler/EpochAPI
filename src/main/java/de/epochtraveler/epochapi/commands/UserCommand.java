@@ -1,5 +1,6 @@
 package de.epochtraveler.epochapi.commands;
 
+import de.epochtraveler.epochapi.user.model.OnlineUser;
 import de.epochtraveler.epochapi.user.model.User;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public abstract class UserCommand implements Command {
     }
 
     @Override
-    public List<String> onTabComplete(User user, String[] args)
+    public List<String> onTabComplete(OnlineUser user, String[] args)
     {
         return null;
     }

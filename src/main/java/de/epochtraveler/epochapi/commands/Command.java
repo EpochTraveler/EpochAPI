@@ -1,6 +1,6 @@
 package de.epochtraveler.epochapi.commands;
 
-import de.epochtraveler.epochapi.user.model.User;
+import de.epochtraveler.epochapi.user.model.OnlineUser;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface Command {
      * @param args The arguments provided with the command.
      * @return The status of the command execution.
      */
-    CommandStatus onCommand(User user, String args[]);
+    CommandStatus onCommand(OnlineUser user, String args[]);
 
     /**
      * Provides a list of suggestions for tab completion.
@@ -26,7 +26,7 @@ public interface Command {
      * @param args The arguments provided with the command.
      * @return A list of suggestions for tab completion.
      */
-    List<String> onTabComplete(User user, String args[]);
+    List<String> onTabComplete(OnlineUser user, String args[]);
 
     /**
      * Enumerates the possible statuses of a command execution.
