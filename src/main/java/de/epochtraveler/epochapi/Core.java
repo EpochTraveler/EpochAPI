@@ -3,18 +3,15 @@ package de.epochtraveler.epochapi;
 import de.epochtraveler.epochapi.api.LocalInterface;
 import de.epochtraveler.epochapi.commands.UserCommand;
 import de.epochtraveler.epochapi.event.EventListener;
-import de.epochtraveler.epochapi.user.model.User;
 import de.epochtraveler.epochapi.user.service.UserService;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
-import java.util.Optional;
 
 /**
  * Implementation of the {@link CoreServer} interface
  */
 @LocalInterface(
-        version = "2.1.0",
+        version = "2.1.1",
         name = "Core-API"
 )
 public final class Core {
